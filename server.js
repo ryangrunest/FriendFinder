@@ -15,12 +15,15 @@ app.use(express.static('public'));
 
 // Star Wars Characters (DATA)
 // =============================================================
-let reservations = [
+let friends = [
   {
-    name: "Ryan",
-    number: 5038300199,
-    email: 'ryangrunest45@gmail.com',
-    uniqueID: 1234
+    name: 'Ryan',
+    photo: 'www.urface.jpg.com',
+    q1: 1,
+    q2: 2,
+    q3: 3,
+    q4: 4,
+    q5: 5 
   }
 ];
 
@@ -36,30 +39,24 @@ app.get("/survey", function(req, res) {
   res.sendFile(path.join(__dirname, 'survey.html'));
 });
 
-app.get("/api/", function(req, res) {
+app.get("/api", function(req, res) {
 
-  return res.json(reservations);
+  return res.json(friends);
 
 // return res.json(false);
 });
-app.get('/api/waitlist', function(req, res) {
-  return res.json(waitlist);
-})
+// app.get('/api/waitlist', function(req, res) {
+//   return res.json(waitlist);
+// })
 
 // Create New Characters - takes in JSON input
-app.post("/api/tables", function(req, res) {
+app.post("/api", function(req, res) {
   var newres = req.body;
   console.log(newres);
   reservations.push(newres);
   res.json(newres);
 });
 
-app.post("/api/waitlist", function(req, res) {
-  var newres = req.body;
-  console.log(newres);
-  waitlist.push(newres);
-  res.json(newres);
-});
 
 // Starts the server to begin listening
 // =============================================================

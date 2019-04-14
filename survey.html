@@ -22,12 +22,12 @@
         <h5>Pick from 1-5, 1 means disagree, 5 means agree the most. Be Honest!</h5> 
         <form>
             <div class="form-group mt-2">
-                <input type="text" class="form-control" id="Name" placeholder="Alan Aardvark">
+                <input type="text" class="form-control" id="name" placeholder="Alan Aardvark">
             </div>
             <div class="input-group">
                 <div class="custom-file">
                     <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                    <label class="custom-file-label" for="inputGroupFile01">urface.jpg</label>
+                    <label class="custom-file-label" for="image">urface.jpg</label>
                 </div>
             </div>
             <div class="form-group mt-3">
@@ -80,11 +80,14 @@
                 <option>5</option>
                 </select>
             </div>
+            <button type="submit" id="lined-thick">Submit</button>
         </form>
     </div>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-bottom">
+
+    <!-- NavBar -->
+    <nav id="bottom-nav" class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-bottom">
         <a class="navbar-brand" href="#">Friend Finder</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <button id="dropdown-button-check" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon text-light"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
