@@ -6,6 +6,30 @@ body {
     background-size: cover;
 }
 #jumby {
-    margin-top: 75%;
+    /* margin-top: 75%; */
     background: rgba(25,25,25, 0.5);
 }
+#lined-thick {
+    margin-top: 500px;
+    border: solid 7px #41403E;
+    align-self: center;
+    background: transparent;
+    padding: 1rem 1rem;
+    /* margin: 25px 1rem; */
+    transition: all .5s ease;
+    color: #41403E;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    outline: none;
+    box-shadow: 20px 38px 34px -26px rgba(0, 0, 0, 0.2);
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
+#lined-thick:hover {
+    box-shadow: 2px 8px 4px -6px rgba(0, 0, 0, 0.3);
+}
+
+@media only screen and (max-width: 1024px) {
+    #jumby {
+        /* margin-top: 30%; */
+    }
+  }

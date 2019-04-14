@@ -36,7 +36,7 @@ app.get("/survey", function(req, res) {
   res.sendFile(path.join(__dirname, 'survey.html'));
 });
 
-app.get("/api/tables", function(req, res) {
+app.get("/api/", function(req, res) {
 
   return res.json(reservations);
 
