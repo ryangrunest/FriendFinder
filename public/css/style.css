@@ -1,0 +1,11 @@
+body {
+    background: url('/assets/bg.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+#jumby {
+    margin-top: 75%;
+    background: rgba(25,25,25, 0.5);
+}
