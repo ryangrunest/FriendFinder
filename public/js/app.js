@@ -1,5 +1,5 @@
 // alert('connected');
-$('button').on('click', (event) => {
+$('#submit-btn').on('click', (event) => {
     event.preventDefault();
     console.log($('button').attr('type'));
     if ($('button').attr('type') === 'submit') {
@@ -11,8 +11,7 @@ $('button').on('click', (event) => {
             q3: $('#q3').val().trim(),
             q4: $('#q4').val().trim(),
             q5: $('#q5').val().trim()
-        }
-    
+        };
         $.post("/api", newFriend).then(function(data) {
         console.log(data);
         alert("Reservation Added!");

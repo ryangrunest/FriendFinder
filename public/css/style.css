@@ -9,7 +9,7 @@ body {
     margin-top: 250px;
     background: rgba(25,25,25, 0.5);
 }
-#lined-thick {
+button {
     /* margin-top: 500px; */
     border: solid 7px white;
     align-self: center;
@@ -24,7 +24,7 @@ body {
     box-shadow: 20px 38px 34px -26px rgba(0, 0, 0, 0.2);
     border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
 }
-#lined-thick:hover {
+button:hover {
     box-shadow: 2px 8px 4px -6px white;
 }
 .button-holder {
