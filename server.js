@@ -51,10 +51,10 @@ app.get("/api", function(req, res) {
 
 // Create New Characters - takes in JSON input
 app.post("/api", function(req, res) {
-  var newres = req.body;
-  console.log(newres);
-  reservations.push(newres);
-  res.json(newres);
+  let newFriend = req.body;
+  console.log(newFriend);
+  friends.push(newFriend);
+  res.json(newFriend);
 });
 
 
