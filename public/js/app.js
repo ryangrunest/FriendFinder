@@ -1,3 +1,4 @@
+// add background color to navbar menu when dropdown button clicked
 checkAriaExpanded = () => {
     console.log($('#dropdown-button-check').attr('aria-expanded'));
     if ($('#dropdown-button-check').attr('aria-expanded') === 'false') {
@@ -8,12 +9,56 @@ checkAriaExpanded = () => {
         $('#bottom-nav').addClass('bg-transparent'); 
     }
 }
-checkFriends = (data) => {
-    console.log(data);
+function indexOfMin(arr) {
+    if (arr.length === 0) {
+        return -1;
+    }
+    let min = arr[0];
+    let minIndex = 0;
+    for (var q = 1; q < arr.length; q++) {
+        if (arr[q] < min) {
+            minIndex = q;
+            min = arr[q];
+        }
+    }
+    return minIndex;
+}
+loadNewFriend = (newFriendIndex) =>  {
+    $.get('/api', (data) => {
+        console.log(data[newFriendIndex]);
+    })
+}
+checkFriends = (data, currentUser) => {
+    // create an array for current user obj
+    let userArray = Object.values(currentUser);
+    let compareArray = [];
+    // loop through other users
+    for (var i = 1; i < data.length; i++) {
+        // create array for data object
+        let pulledArray = Object.values(data[i])
+        // loop through other user's values
+        let totalDifference = 0;
+        for (var a = 2; a < pulledArray.length; a++) {
+            // compare diff of each value
+            let comparedNum = userArray[a] - pulledArray[a];
+            // if num is negative, make positived
+            if (comparedNum < 0) {
+                comparedNum *= -1;
+            }
+            // add difference to totalDifference
+            totalDifference += comparedNum;
+        }
+        // push totaldiff of user to array to compare vals to. 
+        compareArray.push(totalDifference);
+    }
+    console.log(compareArray);
+    let friendIndex = indexOfMin(compareArray);
+    console.log(friendIndex);
+    loadNewFriend(friendIndex);
 }
 $('#submit-btn').on('click', (event) => {
     event.preventDefault();
-    console.log($('button').attr('type'));
+    // console.log($('button').attr('type'));
     let newFriend = {
         name: $('#name').val().trim(),
         photo: $('#image').val().trim(),
@@ -24,12 +69,13 @@ $('#submit-btn').on('click', (event) => {
         q5: $('#q5').val().trim()
     };
     $.post("/api", newFriend).then(function(data) {
-    console.log(data);
-    $.get('/api', checkFriends)
-    alert("Reservation Added!");
-    });  
+    // console.log(data);
+    });
+    $.get('/api', (data) => {
+        checkFriends(data, newFriend);
+    });
 });
 
 
-
+// function to run when dropdown button is clicked
 $('#dropdown-button-check').on('click', checkAriaExpanded);
