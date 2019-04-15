@@ -30,9 +30,8 @@ button:hover {
 .button-holder {
     margin-top: 5%;
 }
-
-@media only screen and (max-width: 1024px) {
-    #jumby {
-        /* margin-top: 30%; */
-    }
-  }
+.modalPic {
+    display: block;
+    margin: auto;
+    width: 80%;
+}

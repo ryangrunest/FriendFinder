@@ -18,7 +18,7 @@ app.use(express.static('public'));
 let friends = [
   {
     name: 'Ryan',
-    photo: 'www.urface.jpg.com',
+    photo: 'https://pbs.twimg.com/profile_images/848253287568625668/uBCB2Jfe_400x400.jpg',
     q1: 1,
     q2: 2,
     q3: 3,

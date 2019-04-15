@@ -26,6 +26,12 @@ function indexOfMin(arr) {
 loadNewFriend = (newFriendIndex) =>  {
     $.get('/api', (data) => {
         console.log(data[newFriendIndex]);
+    }).then((data) => {
+        $('#modalTitle').text(data[newFriendIndex].name);
+        let friendPicURL = data[newFriendIndex].photo;
+        let picture = $('<img>').attr('src', friendPicURL).addClass('modalPic');
+        $('#modalBody').append(picture);
+        $('#myModal').modal('toggle');
     })
 }
 checkFriends = (data, currentUser) => {
@@ -57,6 +63,7 @@ checkFriends = (data, currentUser) => {
     loadNewFriend(friendIndex);
 }
 $('#submit-btn').on('click', (event) => {
+    
     event.preventDefault();
     // console.log($('button').attr('type'));
     let newFriend = {
