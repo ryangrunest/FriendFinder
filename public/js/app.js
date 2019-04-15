@@ -9,7 +9,18 @@ checkAriaExpanded = () => {
         $('#bottom-nav').addClass('bg-transparent'); 
     }
 }
-function indexOfMin(arr) {
+// THIS DOESNT WORK YET AND IDK WHY
+validateForm = () => {
+    let x = document.forms["survey-form"]["image"].value;
+    console.log(x);
+    let imageArray = x.split('.');
+    console.log(imageArray);
+    if (imageValue[imageValue.length - 1] != "jpg") {
+      alert("Must be a URL ending with .jpg");
+      return false;
+    }
+  }
+indexOfMin = (arr) => {
     if (arr.length === 0) {
         return -1;
     }
